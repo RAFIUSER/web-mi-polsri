@@ -6,7 +6,7 @@ import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import React from 'react'
 import Footer from './_components/footer'
-import { Navbar } from './_components/navbar'
+import { NavbarClient } from './_components/navbar-client'
 import { ThemeProvider } from './_providers/theme-provider'
 
 export async function generateMetadata({
@@ -52,7 +52,7 @@ export default async function RootLayout({
   return (
     <NextIntlClientProvider>
       <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
-        <Navbar />
+        <NavbarClient />
         <main>{children}</main>
         <Footer />
         <Toaster />

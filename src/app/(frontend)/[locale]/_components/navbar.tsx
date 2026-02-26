@@ -166,11 +166,6 @@ export function Navbar() {
                                 desc: t('profile.lecturers.desc'),
                                 href: `/dosen`,
                               },
-                              // {
-                              //   label: t('profile.staff.title'),
-                              //   desc: t('profile.staff.desc'),
-                              //   href: `/tendik`,
-                              // },
                             ].map((item) => (
                               <ListItem key={item.label} href={item.href} title={item.label}>
                                 {item.desc}
