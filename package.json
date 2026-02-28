@@ -12,7 +12,10 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "post-build": "node ./lift-pnpm-dependencies.cjs",
     "schema:migrate": "tsx --env-file=.env ./script/migrate.ts",
-    "auth:seed": "tsx --env-file=.env ./seed/cmsuser.ts"
+    "auth:seed": "tsx --env-file=.env ./seed/cmsuser.ts",
+    "seed:post": "tsx --env-file=.env ./seed/placeholder-post.ts",
+    "seed:agenda": "tsx --env-file=.env ./seed/placeholder-agenda.ts",
+    "seed:facility": "tsx --env-file=.env ./seed/placeholder-facility.ts"
   },
   "dependencies": {
     "@ai-sdk/react": "^1.2.12",

@@ -9,7 +9,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from '@/components/ui/pagination'
-import { DownloadIcon, FileIcon, FileTextIcon, FileImageIcon } from 'lucide-react'
+import { DownloadIcon, FileIcon, FileTextIcon, FileImageIcon, ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface DokumenListProps {
   data: PaginatedResult<Dokumen> | null
@@ -62,7 +62,7 @@ export default function DokumenList({ data, page, setPage }: DokumenListProps) {
   }
 
   return (
-    <div className="w-full flex flex-col gap-4 px-4">
+    <div className="w-full flex flex-col items-center gap-8 px-4">
       <div className="w-full grid grid-cols-2 gap-4">
         {data.results.map((doc) => (
           <div
@@ -85,31 +85,33 @@ export default function DokumenList({ data, page, setPage }: DokumenListProps) {
         ))}
       </div>
 
-      {data.totalPages > 1 && (
-        <Pagination>
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious
-                onClick={() => setPage(page - 1)}
-                aria-disabled={!data.hasPrevPage}
-                className={!data.hasPrevPage ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
-              />
-            </PaginationItem>
-            <PaginationItem>
-              <span className="text-sm px-4 text-muted-foreground">
-                {page} / {data.totalPages}
-              </span>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationNext
-                onClick={() => setPage(page + 1)}
-                aria-disabled={!data.hasNextPage}
-                className={!data.hasNextPage ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
-              />
-            </PaginationItem>
-          </PaginationContent>
-        </Pagination>
-      )}
+      <div className="flex items-center gap-2">
+        {data && data.totalPages > 0 && (
+          <>
+            {page > 1 && (
+              <Button variant="secondary" size="icon" onClick={() => setPage(page - 1)}>
+                <ChevronLeft />
+              </Button>
+            )}
+            {Array.from({ length: data.totalPages }).map((_, idx) => (
+              <Button
+                disabled={page === idx + 1}
+                key={idx}
+                variant="secondary"
+                size="icon"
+                onClick={() => setPage(idx + 1)}
+              >
+                {idx + 1}
+              </Button>
+            ))}
+            {page !== data.totalPages && (
+              <Button variant="secondary" size="icon" onClick={() => setPage(page + 1)}>
+                <ChevronRight />
+              </Button>
+            )}
+          </>
+        )}
+      </div>
     </div>
   )
 }
