@@ -2,13 +2,6 @@
 import type { PaginatedResult } from '@/repository/_contracts'
 import type { Dokumen } from '@/schemas/DokumenTable'
 import { Button } from '@/components/ui/button'
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationNext,
-  PaginationPrevious,
-} from '@/components/ui/pagination'
 import { DownloadIcon, FileIcon, FileTextIcon, FileImageIcon, ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface DokumenListProps {
