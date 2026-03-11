@@ -14,7 +14,7 @@ export async function Hero({ locale }: { locale: string }) {
   } = await getMessages({ locale })
 
   return (
-    <div className="relative min-h-screen pt-20 px-4 md:px-8">
+    <div className="relative min-h-screen pt-20 px-4 md:px-4">
       {/* Main Container with rounded corners and margin */}
       <div className="relative h-[calc(100vh-6rem)] rounded-lg overflow-hidden">
         {/* YouTube Video for large screens */}
