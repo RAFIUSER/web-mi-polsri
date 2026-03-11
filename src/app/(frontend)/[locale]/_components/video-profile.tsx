@@ -2,6 +2,7 @@
 import { Button } from '@/components/ui/button'
 import { Play } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
 import YouTube from 'react-youtube'
 
@@ -9,7 +10,7 @@ export function VideoProfile() {
   const [toggled, setToggled] = useState<boolean>(false)
 
   return (
-    <div className="relative h-[19rem] aspect-video rounded overflow-hidden">
+    <div className="relative h-76 aspect-video rounded-xl overflow-hidden">
       {toggled ? (
         <YouTube
           videoId="PruKBFv7xD8"
@@ -23,10 +24,10 @@ export function VideoProfile() {
               showinfo: 1,
             },
           }}
-          className="w-full h-[20rem]"
+          className="w-full h-80"
         />
       ) : (
-        <>
+        <Link href="https://www.youtube.com/watch?v=PruKBFv7xD8" target="_blank" className="absolute inset-0">
           <Image
             key="Head-3.jpg"
             src="/Hero-1.jpeg"
@@ -42,7 +43,7 @@ export function VideoProfile() {
           >
             <Play className="size-8" />
           </Button>
-        </>
+        </Link>
       )}
     </div>
   )
