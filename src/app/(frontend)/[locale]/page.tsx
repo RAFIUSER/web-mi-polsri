@@ -39,7 +39,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const { locale } = await params
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-8">
       <Hero locale={locale} />
       <Partners locale={locale} />
       <Profile locale={locale} />

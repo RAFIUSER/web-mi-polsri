@@ -27,7 +27,7 @@ export function VideoProfile() {
           className="w-full h-80"
         />
       ) : (
-        <Link href="https://www.youtube.com/watch?v=PruKBFv7xD8" target="_blank" className="absolute inset-0">
+        <>
           <Image
             key="Head-3.jpg"
             src="/Hero-1.jpeg"
@@ -43,7 +43,7 @@ export function VideoProfile() {
           >
             <Play className="size-8" />
           </Button>
-        </Link>
+        </>
       )}
     </div>
   )
